@@ -2,9 +2,10 @@
 {# https://docs.wagtail.org/en/v2.12/advanced_topics/i18n.html#wagtail-s-approach-to-multi-lingual-content #}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class=" no-touchevents" data-lt-installed="true">
     <head>
-        <meta charset="utf-8" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>
             {% block title %}
             {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
@@ -14,44 +15,200 @@
             {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
             {% endblock %}
         </title>
-        <meta name="description" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+        <meta name="description" content="design portfolio" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
+<link rel="apple-touch-icon" href="{% static 'img/favicon.png' %}">
         {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/core.css' %}">
-
+<link rel="stylesheet" type="text/css" href="{% static 'css/core.css' %}">
+<link rel='stylesheet' id='stockholm-font-awesome-css' href="{% static 'css/font-awesome.min.css' %}" type='text/css' media='all' />
+<link rel='stylesheet' id='elegant-icons-css' href="{% static 'css/elegant-icons/style.min.css' %}" type='text/css' media='all' />
+<link rel='stylesheet' id='linear-icons-css' href="{% static 'css/linear-icons/style.min.css' %}" type='text/css' media='all' />
+<link rel='stylesheet' id='stockholm-stylesheet-css' href="{% static 'css/stylesheet.min.css' %}" type='text/css' media='all' />
+<link rel='stylesheet' id='stockholm-style-dynamic-css' href="{% static 'css/style_dynamic.css' %}" type='text/css' media='all' />
+<link rel='stylesheet' id='stockholm-responsive-css' href="{% static 'css/responsive.min.css' %}" type='text/css' media='all' />
+<link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;ver=5.4.10' type='text/css' media='all' />
+<script type='text/javascript' src="{% static '/js/jquery/jquery.js' %}"></script>
         {% block extra_css %}
         {# Override this in templates to add extra stylesheets #}
         {% endblock %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
-{% for language_code, language_name in LANGUAGES %}
-    {% get_language_info for language_code as lang %}
 
-    {% language language_code %}
-        <a href="{% pageurl page.localized %}" rel="alternate" hreflang="{{ language_code }}">
-            {{ lang.name_local }}
-        </a>
-    {% endlanguage %}
-{% endfor %}
-<br>
-{% if page %}
-    {% for translation in page.get_translations.live %}
-        {% get_language_info for translation.locale.language_code as lang %}
-        <a href="{% pageurl translation %}" rel="alternate" hreflang="{{ language_code }}">
-            {{ lang.name_local }}
-        </a>
-    {% endfor %}
-{% endif %}
+
 
         {% wagtailuserbar %}
 
-        {% block content %}{% endblock %}
+<div class="wrapper">
+<div class="wrapper_inner">
+
+{% block header %}
+
+<header class="page_header scrolled_not_transparent  regular">
+<div class="header_inner clearfix">
+<div class="header_top_bottom_holder">
+<div class="header_bottom clearfix">
+<div class="container">
+<div class="container_inner clearfix">
+<div class="header_inner_left">
+
+<div class="mobile_menu_button">
+<span><i class="fa fa-bars">
+</i></span></div>
+
+<div class="logo_wrapper">
+<div class="q_logo">
+<a href="#">
+<img class="normal" src="{% static 'img/logo-img.png' %}" alt="Logo" />
+<img class="light" src="{% static 'img/logo_white.png' %}" alt="Logo" />
+<img class="dark" src="{% static 'img/logo_black.png' %}" alt="Logo" />
+<img class="sticky" src="{% static 'img/logo-img.png' %}" alt="Logo" />
+</a> </div>
+</div>
+</div>
+<div class="header_inner_right">
+<div class="side_menu_button_wrapper right">
+<div class="side_menu_button">
+
+</div>
+</div>
+</div>
+<nav class="main_menu drop_down  ">
+<ul id="menu-standard" class="">
+<li id="nav-menu-item-139" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-126 current_page_item active narrow">
+<a href="#" class=" current ">
+<i class="menu_icon fa blank"></i>
+<span class="menu-text">Home</span>
+<span class="plus"></span></a></li>
+<li id="nav-menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page  narrow">
+<a href="#" class="">
+<i class="menu_icon fa blank"></i>
+<span class="menu-text">About</span>
+<span class="plus">
+</span></a></li>
+<li id="nav-menu-item-98" class="menu-item menu-item-type-post_type menu-item-object-page  narrow"><a href="https://stockholm88.qodeinteractive.com/contact/" class="">
+<i class="menu_icon fa blank"></i>
+<span class="menu-text">Contact</span>
+<span class="plus">
+</span></a></li>
+<li id="nav-menu-item-140" class="menu-item menu-item-type-post_type menu-item-object-portfolio_page  narrow">
+<a href="#" class=""><i class="menu_icon fa blank"></i>
+<span class="menu-text">Portfolio</span>
+<span class="plus">
+</span></a></li>
+</ul>
+</nav>
+<nav class="mobile_menu">
+<ul id="menu-standard-1" class=""><li id="mobile-menu-item-139" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-126 current_page_item active">
+<a href="3" class=" current ">
+<span>Home</span></a><span class="mobile_arrow">
+<i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i>
+</span></li>
+<li id="mobile-menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page ">
+<a href="3" class="">
+<span>About</span></a>
+<span class="mobile_arrow"><i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i>
+</span></li>
+<li id="mobile-menu-item-98" class="menu-item menu-item-type-post_type menu-item-object-page ">
+<a href="3" class=""><span>Contact</span></a>
+<span class="mobile_arrow"><i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i>
+</span></li>
+<li id="mobile-menu-item-140" class="menu-item menu-item-type-post_type menu-item-object-portfolio_page "><a href="https://stockholm88.qodeinteractive.com/portfolio_page/memorandum/" class="">
+<span>Portfolio</span></a>
+<span class="mobile_arrow"><i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></span></li>
+</ul></nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+{% endblock header %}
+
+{% block content %}
+<br>
+<br> -----
+<br> content
+<br>-----
+<br>
+{% endblock %}
+
+{% block footer %}
+<footer class="qodef-page-footer ">
+<div class="footer_inner clearfix">
+<div class="fotter_top_border_holder in_grid" style="height: 1px;;background-color: #e1e1e1"></div>
+<div class="footer_top_holder">
+<div class="footer_top ">
+<div class="container">
+<div class="container_inner">
+<div class="three_columns clearfix">
+<div class="qode_column column1 qodef-footer-top-column-1">
+<div class="column_inner">
+<div id="media_image-5" class="widget widget_media_image"><a href="https://stockholm88.qodeinteractive.com/"><img width="173" height="19" src="https://stockholm88.qodeinteractive.com/wp-content/uploads/2020/09/logo-img.png" class="image wp-image-158  attachment-full size-full" alt="a" style="max-width: 100%; height: auto;" /></a></div>
+<div id="text-3" class="widget widget_text">
+
+<div class="textwidget"><p style="width: 75%; margin-top:-10px; margin-bottom:33px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egetus dolor ean.</p>
+</div>
+</div>
+<div id="text-4" class="widget widget_text">
+<div class="textwidget"><p>
+<span class="q_font_elegant_holder q_icon_shortcode normal pull-left " style="font-size: 15px;color: #000000;margin: 0 22px 0 0; " data-hover-color=#858585><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+<span class="q_font_elegant_icon social_facebook" aria-hidden="true" style="font-size: 15px;width: 15px;height: 15px;"></span></a>
+</span>
+<span class="q_font_elegant_holder q_icon_shortcode normal pull-left " style="font-size: 15px;color: #000000;margin: 0 22px 0 0; " data-hover-color=#858585><a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer"><span class="q_font_elegant_icon social_pinterest_circle" aria-hidden="true" style="font-size: 15px;width: 15px;height: 15px;"></span></a></span>
+<span class="q_font_elegant_holder q_icon_shortcode normal pull-left " style="font-size: 15px;color: #000000;margin: 0 22px 0 0; " data-hover-color=#858585><a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><span class="q_font_elegant_icon social_twitter" aria-hidden="true" style="font-size: 15px;width: 15px;height: 15px;"></span></a></span>
+<span class="q_font_elegant_holder q_icon_shortcode normal pull-left " style="font-size: 15pxcolor: #000000;margin: 0 22px 0 0; " data-hover-color=#858585><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><span class="q_font_elegant_icon social_instagram" aria-hidden="true" style="font-size: 15px;width: 15px;height: 15px;"></span></a></span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="qode_column column2 qodef-footer-top-column-2">
+<div class="column_inner">
+<div id="qodef_separator-2" class="widget qodef-separator-widget" style="margin-bottom:2px"></div>
+<div id="nav_menu-2" class="widget widget_nav_menu"><h4>Our Links</h4>
+<div class="menu-footer-menu-1-container"><ul id="menu-footer-menu-1" class="menu"><li id="menu-item-141" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-141"><a href="#">The creativity of paradise</a></li>
+<li id="menu-item-142" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-142"><a href="#">Think positive. Think art</a></li>
+<li id="menu-item-143" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-143"><a href="#">Have design your way</a></li>
+</ul></div></div> </div>
+</div>
+<div class="qode_column column3 qodef-footer-top-column-3">
+<div class="column_inner">
+<div id="qodef_separator-3" class="widget qodef-separator-widget" style="margin-bottom:2px"></div>
+<div id="nav_menu-3" class="widget widget_nav_menu"><h4>our inspiration</h4><div class="menu-footer-menu-2-container"><ul id="menu-footer-menu-2" class="menu"><li id="menu-item-164" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-164"><a href="#">The joy of art</a></li>
+<li id="menu-item-165" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-165"><a href="#">Step into the inspiration</a></li>
+<li id="menu-item-166" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-166"><a href="#">Passion, dedication, work</a></li>
+</ul></div></div> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer_bottom_holder">
+<div class="container">
+<div class="container_inner">
+<div class="fotter_top_border_holder " style="height: 1px;;background-color: #ffffff"></div>
+<div class="footer_bottom">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+{% endblock footer %}
+</div>
+</div>
 
         {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/core.js' %}"></script>
-
+<script type="text/javascript" src="{% static 'js/core.js' %}"></script>
+<script type='text/javascript' src="{% static 'js/jquery.nicescroll.min.js' %}"</script>
+<script type='text/javascript' src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
+<script type='text/javascript' src="{% static 'js/lemmon-slider.js' %}"></script>
+<script type='text/javascript' src="{% static 'js/jquery.fitvids.js' %}"></script>
+<script type='text/javascript' src="{% static 'js/default_dynamic.js' %}"></script>
+<script type='text/javascript' src="{% static 'js/default.min.js' %}"></script>
         {% block extra_js %}
         {# Override this in templates to add extra javascript #}
         {% endblock %}
