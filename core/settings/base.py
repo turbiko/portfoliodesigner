@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 ]
 
+
 # Custom apps added
 INSTALLED_APPS += [
     # 'wagtail.locales',
@@ -55,7 +56,10 @@ INSTALLED_APPS += [
     'company.apps.CompanyConfig',
     'stuff.apps.StuffConfig',
     'project.apps.ProjectConfig',
-    'design.apps.DesignConfig',
+    # 'design.apps.DesignConfig',
+    'menus.apps.MenusConfig',
+    'aboutsite.apps.AboutsiteConfig',
+    'contactme.apps.ContactmeConfig',
 ]
 
 MIDDLEWARE = [
@@ -147,6 +151,12 @@ WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+# ManifestStaticFilesStorage is recommended in production, to prevent outdated
+# JavaScript / CSS assets being served from cache (e.g. after a Wagtail upgrade).
+# See https://docs.djangoproject.com/en/4.0/ref/contrib/staticfiles/#manifeststaticfilesstorage
+
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'  # noqa
+
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
@@ -156,10 +166,7 @@ STATICFILES_DIRS = [
     os.path.join(PROJECT_DIR, "static"),
 ]
 
-# ManifestStaticFilesStorage is recommended in production, to prevent outdated
-# JavaScript / CSS assets being served from cache (e.g. after a Wagtail upgrade).
-# See https://docs.djangoproject.com/en/4.0/ref/contrib/staticfiles/#manifeststaticfilesstorage
-STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
+
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "/static/"

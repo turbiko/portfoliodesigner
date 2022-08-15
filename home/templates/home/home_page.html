@@ -1,21 +1,287 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static wagtailimages_tags %}
+{% block body_class %}
+home page-template page-template-full_width page-template-full_width-php page page-id-126 stockholm-core-1.2.2 qi-addons-for-elementor-1.0 select-theme-ver-5.3 side_area_over_content
+smooth_scroll qode_grid_1300 qode_footer_adv_responsiveness qode_footer_adv_responsiveness_768 qode_footer_adv_responsiveness_one_column qode_menu_center elementor-default elementor-kit-7 elementor-page elementor-page-126
+{% endblock %} {% block extra_css %}
+<link rel='stylesheet' id='stockholm-font-awesome-css' href='https://stockholm88.qodeinteractive.com/wp-content/themes/stockholm/framework/modules/icons/font-awesome/css/font-awesome.min.css?ver=5.4.10' type='text/css' media='all' />
+<link rel='stylesheet' id='linear-icons-css' href='https://stockholm88.qodeinteractive.com/wp-content/themes/stockholm/framework/modules/icons/linear-icons/style.min.css?ver=5.4.10' type='text/css' media='all' />
+<link rel='stylesheet' id='linea-icons-css' href='https://stockholm88.qodeinteractive.com/wp-content/themes/stockholm/framework/modules/icons/linea-icons/style.min.css?ver=5.4.10' type='text/css' media='all' />
+<link rel='stylesheet' id='ion-icons-css' href='https://stockholm88.qodeinteractive.com/wp-content/themes/stockholm/framework/modules/icons/ion-icons/style.min.css?ver=5.4.10' type='text/css' media='all' />
+<link rel='stylesheet' id='stockholm-stylesheet-css' href='https://stockholm88.qodeinteractive.com/wp-content/themes/stockholm/css/stylesheet.min.css?ver=5.4.10' type='text/css' media='all' />
 
-{% block body_class %}template-homepage{% endblock %}
+<link rel='stylesheet' id='stockholm-style-dynamic-css' href='https://stockholm88.qodeinteractive.com/wp-content/themes/stockholm/css/style_dynamic.css?ver=1610526381' type='text/css' media='all' />
 
-{% block extra_css %}
+<link rel='stylesheet' id='stockholm-responsive-css' href='https://stockholm88.qodeinteractive.com/wp-content/themes/stockholm/css/responsive.min.css?ver=5.4.10' type='text/css' media='all' />
+<style id='stockholm-style-dynamic-responsive-inline-css' type='text/css'>
+    .wpcf7-form .two_columns_50_50>.column1>.column_inner {
+        padding: 0;
+        margin: 0 -1px -1px 0;
+    }
+    
+    .wpcf7-form .two_columns_50_50>.column2>.column_inner {
+        padding: 0;
+        margin: 0 0 -1px -1px;
+    }
+    
+    .cf7_custom_style_1 input.wpcf7-form-control.wpcf7-submit,
+    .cf7_custom_style_1 input.wpcf7-form-control.wpcf7-submit:not([disabled]),
+    .contact_form.cf7_custom_style_1 .qbutton {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .cf7_custom_style_1 textarea.wpcf7-form-control.wpcf7-textarea {
+        vertical-align: middle;
+    }
+    
+    .side_menu_button>a {
+        padding: 0;
+    }
+    
+    @media only screen and (max-width: 600px) {
+        .wpcf7-form .two_columns_50_50>.column2>.column_inner {
+            padding: 0;
+            margin: 0 0 -1px 0;
+        }
+        .wpcf7-form .two_columns_50_50>.column1>.column_inner {
+            padding: 0;
+            margin: 0 0 -1px 0;
+        }
+    }
+    
+    .side_menu a.close_side_menu_fold .line:before,
+    .side_menu a.close_side_menu_fold .line:after {
+        height: 2px;
+    }
+    
+    .side_menu .gallery {
+        margin: -5px !important;
+    }
+    
+    .side_menu .gallery dl.gallery-item {
+        padding: 5px;
+        margin: 0 !important;
+        box-sizing: border-box;
+    }
+    
+    .side_menu .gallery dt {
+        margin: 0;
+    }
+    
+    .side_menu .gallery img {
+        border: 0 !important;
+        vertical-align: middle;
+    }
+    
+    .q_icon_list .q_font_elegant_icon.circle {
+        margin: 0 5px 0 0;
+        border: 0;
+        line-height: 37px;
+    }
+    
+    .q_icon_list a:hover p {
+        color: inherit;
+    }
+    
+    .page_not_found {
+        margin: 70px 0 150px;
+    }
+    
+    .error404 .content {
+        min-height: initial !important;
+    }
+    
+    @media only screen and (min-width: 1025px) {
+        .portfolio_single .portfolio_images {
+            padding-right: 50px;
+        }
+    }
+    
+    @media only screen and (max-width: 1025px) {
+        .portfolio_single.small-images .two_columns_66_33 .column1,
+        .portfolio_single.small-images .two_columns_66_33 .column2 {
+            width: 100%;
+        }
+        .portfolio_single.small-images .two_columns_66_33 .column1 .column_inner,
+        .portfolio_single.small-images .two_columns_66_33 .column2 .column_inner {
+            padding: 0;
+        }
+        .portfolio_single .column2 {
+            margin-top: 30px;
+        }
+    }
+    
+    .portfolio_detail.portfolio_single_follow {
+        padding: 60px 0 0 0;
+    }
+    
+    .portfolio_detail .info {
+        display: flex;
+        align-items: baseline;
+    }
+    
+    .portfolio_detail .info .info_section_title,
+    .portfolio_detail .info p {
+        margin: 0 !important;
+    }
+    
+    .portfolio_detail .info.portfolio_single_categories h6 {
+        word-spacing: -5px;
+    }
+    
+    .portfolio_detail .info .info_section_title:after {
+        content: ':';
+        padding-right: 5px;
+    }
+    
+    .portfolio_detail .info>p a {
+        color: inherit;
+    }
+    
+    .social_share_list_holder.regular ul li i {
+        font-size: 13px;
+    }
+    
+    .masonry_with_space .projects_holder article .portfolio_description {
+        padding: 24px 0 58px;
+    }
+    
+    .full_width .projects_holder_outer.pinterest_space {
+        padding: 0;
+    }
+    
+    .full_width .projects_holder_outer.pinterest_space .projects_holder {
+        margin: -45px;
+    }
+    
+    .masonry_with_space.pinterest_space .projects_holder article {
+        padding: 0 45px;
+    }
+    
+    .projects_holder article .portfolio_title,
+    .projects_masonry_holder article .portfolio_title {
+        margin: 0 0 5px;
+    }
+    
+    .projects_holder article .image img {
+        transform: scale(1.02);
+        image-rendering: pixelated;
+    }
+    
+    .projects_holder article:hover .image img {
+        transform: scale(1.02) translateY(-5px);
+    }
+    
+    .projects_holder article .portfolio_shader {
+        display: none;
+    }
+    
+    @media only screen and (max-width: 1024px) {
+        .full_width .projects_holder_outer.pinterest_space .projects_holder {
+            margin: -15px;
+        }
+        .masonry_with_space.pinterest_space .projects_holder article {
+            padding: 15px;
+        }
+    }
+    
+    @media only screen and (max-width: 1000px) {
+        .side_menu_button_wrapper {
+            visibility: hidden;
+        }
+    }
+    
+    .mobile_menu_button span {
+        font-size: 22px;
+    }
+    
+    .portfolio_navigation {
+        padding: 40px 0;
+    }
+    
+    nav.mobile_menu>ul {
+        padding-bottom: 40px;
+    }
+    
+    .side_menu .widget.widget_media_gallery .gallery-item a {
+        display: block;
+        overflow: hidden;
+    }
+    
+    .side_menu .widget.widget_media_gallery a img {
+        transform: scale(1.1);
+        transition: all 0.3s ease;
+    }
+    
+    .side_menu .widget.widget_media_gallery a:hover img {
+        transform: scale(1.1) translateY(-5px);
+    }
+</style>
+<script type='text/javascript' src='https://stockholm88.qodeinteractive.com/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://stockholm88.qodeinteractive.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+{% endblock extra_css %} {% block content %}
 
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-<link rel="stylesheet" href="{% static 'css/home_page.css' %}">
-{% endblock extra_css %}
+<div class="content content_top_margin_none">
+    <div class="content_inner">
+        <div class="full_width">
+            <div class="full_width_inner">
+                <div data-elementor-type="wp-page" data-elementor-id="126" class="elementor elementor-126" data-elementor-settings="[]">
+                    <div class="elementor-inner">
+                        <div class="elementor-section-wrap">
+                            <section class="elementor-section elementor-top-section elementor-element elementor-element-5b97037 elementor-section-full_width qode_elementor_container_inner elementor-section-height-default elementor-section-height-default parallax_section_no qode-content-aligment-left"
+                                data-id="5b97037" data-element_type="section">
+                                <div class="elementor-container elementor-column-gap-default">
+                                    <div class="elementor-row">
+                                        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-25f1269" data-id="25f1269" data-element_type="column">
+                                            <div class="elementor-column-wrap elementor-element-populated">
+                                                <div class="elementor-widget-wrap">
+                                                    <div class="elementor-element elementor-element-39c2248 elementor-widget elementor-widget-portfolio_list" data-id="39c2248" data-element_type="widget" data-widget_type="portfolio_list.default">
+                                                        <div class="elementor-widget-container">
+                                                            <div class='projects_holder_outer v2 portfolio_with_space portfolio_standard masonry_with_space pinterest_space qode-filter-position-top'>
+                                                                <div class='projects_holder clearfix v2 standard portfolio_default_image '>
 
-{% block content %}
 
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-{# include 'home/welcome_page.html' #}
+                                                                    {% for page in project_pages.specific %}
+                                                                    <article class="mix portfolio_category_3 portfolio_category_4">
+                                                                        <div class='image_holder '>
+                                                                            <span class='image'><img width="1300" height="1438" src="{{page.pic1.url}}" class="attachment-full size-full wp-post-image" alt="a"  /></span>
+                                                                            <a class='portfolio_link_class' href='{{page.url}}' target='_self'></a>
+                                                                            <div class="portfolio_shader"></div>
+                                                                            <div class="icons_holder">
+                                                                                <div class="icons_holder_inner">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class='portfolio_description  text_align_left'>
+                                                                            <h4 class="portfolio_title"><a href="{{page.url}}" target="_self"> {{page.title}}</a></h4>
+                                                                            <h6 class="portfolio_subtitle"> </h6> <span class="project_category">
+<span> In </span> {{page.categories}} </span>
+                                                                        </div>
+                                                                    </article>
+                                                                    {% endfor %}
+
+
+                                                                    <div class='filler'></div>
+                                                                    <div class='filler'></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type='text/javascript' src='https://stockholm88.qodeinteractive.com/wp-content/plugins/qi-addons-for-elementor/inc/masonry/assets/js/plugins/isotope.pkgd.min.js?ver=5.4.10'></script>
 {% endblock content %}
-

@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load static wagtailimages_tags %}
+{% block body_class %}
+home page-template page-template-full_width page-template-full_width-php page page-id-126 stockholm-core-1.2.2 qi-addons-for-elementor-1.0 select-theme-ver-5.3 side_area_over_content
+smooth_scroll qode_grid_1300 qode_footer_adv_responsiveness qode_footer_adv_responsiveness_768 qode_footer_adv_responsiveness_one_column qode_menu_center elementor-default elementor-kit-7 elementor-page elementor-page-126
+{% endblock body_class %}
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/home_page.css' %}">
+{% endblock extra_css %}
+{% block content %}
+<div class="content content_top_margin_none">
+    <div class="content_inner">
+        <div class="container">
+            <div class="container_inner default_template_holder clearfix" style="padding-top:0px">
+                <div class="portfolio_single small-images">
+                    <div class="two_columns_66_33 clearfix portfolio_container">
+                        <div class="column1">
+                            <div class="column_inner">
+                                <div class="portfolio_images">
+                                    <a class="lightbox_single_portfolio " title="portfolio-gallery-img1" href="{{page.pic1.url}}" data-rel="prettyPhoto[single_pretty_photo]">
+                                        <img src="{{page.pic1.url}}" alt="a" />
+                                    </a>
+                                    <a class="lightbox_single_portfolio " title="portfolio-gallery-img2" href="{{page.pic2.url}}" data-rel="prettyPhoto[single_pretty_photo]">
+                                        <img src="{{page.pic2.url}}" alt="a" />
+                                    </a>
+                                    <a class="lightbox_single_portfolio " title="portfolio-gallery-img3" href="{{page.pic3.url}}" data-rel="prettyPhoto[single_pretty_photo]">
+                                        <img src="{{page.pic3.url}}" alt="a" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column2">
+                            <div class="column_inner">
+                                <div class="portfolio_detail portfolio_single_follow clearfix">
+                                    <h3 class="info_section_title">{{page.title}}</h3>
+                                    <div class="info portfolio_single_content">
+                                        <div data-elementor-type="wp-post" data-elementor-id="45" class="elementor elementor-45" data-elementor-settings="[]">
+                                            <div class="elementor-inner">
+                                                <div class="elementor-section-wrap">
+                                                    <section class="elementor-section elementor-top-section elementor-element elementor-element-570e957 elementor-section-full_width elementor-section-height-default elementor-section-height-default parallax_section_no qode_elementor_container_no qode-content-aligment-left"
+                                                        data-id="570e957" data-element_type="section">
+                                                        <div class="elementor-container elementor-column-gap-default">
+                                                            <div class="elementor-row">
+                                                                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-8aeeb48" data-id="8aeeb48" data-element_type="column">
+                                                                    <div class="elementor-column-wrap elementor-element-populated">
+                                                                        <div class="elementor-widget-wrap">
+                                                                            <div class="elementor-element elementor-element-6c96756 elementor-widget elementor-widget-text-editor" data-id="6c96756" data-element_type="widget" data-widget_type="text-editor.default">
+                                                                                <div class="elementor-widget-container">
+                                                                                    <div class="elementor-text-editor elementor-clearfix">
+                                                                                        <p>{{page.about_project| safe}}</p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="info portfolio_single_custom_field">
+                                        <h6 class="info_section_title">client</h6>
+                                        <p>
+                                            <a href="https://stockholm88.qodeinteractive.com/" target="_blank">
+{{page.client}} </a>
+                                        </p>
+                                    </div>
+                                    <div class="info portfolio_single_custom_date">
+                                        <h6 class="info_section_title">Date</h6>
+                                        <p>{{page.date}}</p>
+                                    </div>
+                                    <div class="info portfolio_single_categories">
+                                        <h6 class="info_section_title">Category </h6>
+                                        <p>
+                                            <span class="category">
+{{page.categories}} </span>
+                                        </p>
+                                    </div>
+                                    <div class="info portfolio_single_tags">
+                                        <h6 class="info_section_title">Tags</h6>
+                                        <p>
+                                            <span class="category">
+{{page.tags}} </span>
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
