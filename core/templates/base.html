@@ -22,8 +22,10 @@
     </title>
     <meta name="description" content="design portfolio" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}" />
-    <link rel="apple-touch-icon" href="{% static 'img/favicon.png' %}" /> {# Global stylesheets #}{% include 'css.html' %} {% block extra_css %} {# Override this in templates to add extra stylesheets #} {% endblock %}
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.png" />
+    <link rel="apple-touch-icon" href="/static/img/favicon.png" />
+    {# Global stylesheets #}{% include 'css.html' %}
+    {% block extra_css %} {# Override this in templates to add extra stylesheets #} {% endblock %}
 </head>
 
 <body class="{% block body_class %}{% endblock %}">

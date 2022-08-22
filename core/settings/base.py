@@ -163,10 +163,8 @@ STATICFILES_FINDERS = [
 ]
 
 STATICFILES_DIRS = [
-    os.path.join(PROJECT_DIR, "static"),
+    os.path.join(PROJECT_DIR, 'static'),
 ]
-
-
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "/static/"
@@ -193,7 +191,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 WAGTAILADMIN_BASE_URL = "https://design.film.ua"
 
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # email functions (sending forms and registrations)
 # TODO: add it to app contact-form and mail registered user
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -222,3 +220,34 @@ ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_USERNAME_BLACKLIST = ['anonymous', 'admin', 'god', 'root']
 ACCOUNT_USERNAME_MIN_LENGTH = 5
+
+# levels DEBUG INFO WARNING ERROR CRITICAL
+LOGGING = {
+   'version': 1,
+   'disable_existing_loggers': False,
+   'formatters': {
+        'verbose': {
+            'format': '{name} {levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+   'handlers': {
+      'file': {
+         'level': 'DEBUG',
+         'class': 'logging.FileHandler',
+         'filename': 'debug.log',
+         'formatter': 'verbose',
+      },
+   },
+   'loggers': {
+      'django': {
+         'handlers': ['file'],
+         'level': 'ERROR',
+         'propagate': True,
+      },
+   },
+}
