@@ -1,7 +1,7 @@
 version: '3.7'
 
 services:
-  web:
+  design:
     build: .
     command: sh entrypoint.sh
     volumes:
