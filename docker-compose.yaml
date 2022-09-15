@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.7'
 services:
   admin_api:
     container_name: django_api
