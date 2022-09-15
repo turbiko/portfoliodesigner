@@ -1,0 +1,155 @@
+{% load static i18n wagtailcore_tags wagtailuserbar menus_tags %}
+{% get_footer "footer" as footer_ %}
+    <footer class="qodef-page-footer">
+        <div class="footer_inner clearfix">
+            <div class="fotter_top_border_holder in_grid" style="height: 1px; background-color: #e1e1e1"></div>
+            <div class="footer_top_holder">
+                <div class="footer_top">
+                    <div class="container">
+                        <div class="container_inner">
+                            <div class="three_columns clearfix">
+                                <div class="qode_column column1 qodef-footer-top-column-1">
+                                    <div class="column_inner">
+                                        <div id="media_image-5" class="widget widget_media_image">
+                                            <a href="/"><img width="173" height="19" src="{% static 'img/logo-img.png' %}" class="image wp-image-158 attachment-full size-full" alt="a" style="max-width: 100%; height: auto"
+                                                /></a>
+                                        </div>
+                                        <div id="text-3" class="widget widget_text">
+                                            <div class="textwidget">
+                                                <p style="
+                                  width: 75%;
+                                  margin-top: -10px;
+                                  margin-bottom: 33px;
+                                ">
+                                                    {{footer_.text}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div id="text-4" class="widget widget_text">
+                                            <div class="textwidget">
+                                                <p>
+                                                    <span class="q_font_elegant_holder q_icon_shortcode normal pull-left" style="
+                                    font-size: 15px;
+                                    color: #000000;
+                                    margin: 0 22px 0 0;
+                                  " data-hover-color="#858585"><a
+                                    href="{{footer_.facebook_url}}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <span
+                                      class="q_font_elegant_icon social_facebook"
+                                      aria-hidden="true"
+                                      style="
+                                        font-size: 15px;
+                                        width: 15px;
+                                        height: 15px;
+                                      "
+                                    ></span
+                                  ></a>
+                                </span>
+                                <span class="q_font_elegant_holder q_icon_shortcode normal pull-left" style="
+                                    font-size: 15px;
+                                    color: #000000;
+                                    margin: 0 22px 0 0;
+                                  " data-hover-color="#858585"><a
+                                    href="{{footer_.pinterest_url}}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    ><span
+                                      class="q_font_elegant_icon social_pinterest_circle"
+                                      aria-hidden="true"
+                                      style="
+                                        font-size: 15px;
+                                        width: 15px;
+                                        height: 15px;
+                                      "
+                                    ></span></a>
+                                </span>
+                                <span class="q_font_elegant_holder q_icon_shortcode normal pull-left" style="
+                                    font-size: 15px;
+                                    color: #000000;
+                                    margin: 0 22px 0 0;
+                                  " data-hover-color="#858585"><a
+                                    href="{{footer_.twitter_url}}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    ><span
+                                      class="q_font_elegant_icon social_twitter"
+                                      aria-hidden="true"
+                                      style="
+                                        font-size: 15px;
+                                        width: 15px;
+                                        height: 15px;
+                                      "
+                                    ></span></a>
+                                </span>
+                                <span class="q_font_elegant_holder q_icon_shortcode normal pull-left" style="font-size: 15pxcolor: #000000;margin: 0 22px 0 0; " data-hover-color="#858585"><a
+                                    href="{{footer_.instagram_url}}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    ><span
+                                      class="q_font_elegant_icon social_instagram"
+                                      aria-hidden="true"
+                                      style="
+                                        font-size: 15px;
+                                        width: 15px;
+                                        height: 15px;
+                                      "
+                                    ></span></a>
+                                </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+            <div class="qode_column column2 qodef-footer-top-column-2">
+                <div class="column_inner">
+                    <div id="qodef_separator-2" class="widget qodef-separator-widget" style="margin-bottom: 2px"></div>
+                    <div id="nav_menu-2" class="widget widget_nav_menu">
+                        <h4>Our Links</h4>
+                        <div class="menu-footer-menu-1-container">
+
+                            <ul id="menu-footer-menu-1" class="menu">
+                                {% for item in footer_.footer_links.all %}
+                                <li id="menu-item-141" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-141">
+                                    <a href="{{item.link_url}}">{{item.link_title}}</a>
+                                </li>
+                                {%endfor%}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="qode_column column3 qodef-footer-top-column-3">
+                <div class="column_inner">
+                    <div id="qodef_separator-3" class="widget qodef-separator-widget" style="margin-bottom: 2px"></div>
+                    <div id="nav_menu-3" class="widget widget_nav_menu">
+                        <h4>our inspiration</h4>
+                        <div class="menu-footer-menu-2-container">
+                            <ul id="menu-footer-menu-2" class="menu">
+                                {% for item in footer_.footer_inspiration.all %}
+                                <li id="menu-item-164" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-164">
+                                    <a href="{{item.link_url}}">{{item.link_title}}</a>
+                                </li>
+                                {%endfor%}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_bottom_holder">
+                <div class="container">
+                    <div class="container_inner">
+                        <div class="fotter_top_border_holder" style="height: 1px; background-color: #ffffff"></div>
+                        <div class="footer_bottom"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>

@@ -11,6 +11,8 @@ from wagtail.admin.edit_handlers import (
 )
 from wagtail.core.models import Orderable
 from wagtail.snippets.models import register_snippet
+from django.utils.translation import gettext_lazy as _
+
 
 class MenuItem(Orderable):
 
@@ -73,7 +75,75 @@ class Menu(ClusterableModel):
             FieldPanel("title"),
             FieldPanel("slug"),
         ], heading="Menu"),
-        InlinePanel("menu_items", label="Menu Item")
+        InlinePanel("menu_items", label="Menu Item"),
+    ]
+
+    def __str__(self):
+        return self.title
+
+# FOOTER
+
+
+class FooterItemLink1(Orderable):
+    page = ParentalKey("FooterText", related_name="footer_links")
+    link_title = models.CharField(
+            blank=True,
+            null=True,
+            max_length=50
+    )
+    link_url = models.URLField(
+            max_length=500,
+            blank=True
+    )
+    open_in_new_tab = models.BooleanField(default=False, blank=True)
+
+    panels = [
+        FieldPanel("link_title"),
+        FieldPanel("link_url"),
+        FieldPanel("open_in_new_tab"),
+    ]
+
+class FooterItemLink2(Orderable):
+    page = ParentalKey("FooterText", related_name="footer_inspiration")
+    link_title = models.CharField(
+            blank=True,
+            null=True,
+            max_length=50
+    )
+    link_url = models.URLField(
+            max_length=500,
+            blank=True
+    )
+    open_in_new_tab = models.BooleanField(default=False, blank=True)
+
+    panels = [
+        FieldPanel("link_title"),
+        FieldPanel("link_url"),
+        FieldPanel("open_in_new_tab"),
+    ]
+
+@register_snippet
+class FooterText(ClusterableModel):
+    title = models.CharField(max_length=100)
+    slug = AutoSlugField(populate_from="title", editable=True)
+    text = models.TextField(blank=True, null=True)
+
+    facebook_url = models.URLField(_('facebook'), max_length=200, null=True, blank=True)
+    pinterest_url = models.URLField(_('pinterest'), max_length=200, null=True, blank=True)
+    twitter_url = models.URLField(_('twitter'), max_length=200, null=True, blank=True)
+    instagram_url = models.URLField(_('instagram'), max_length=200, null=True, blank=True)
+    panels = [
+        MultiFieldPanel([
+            FieldPanel("title"),
+            FieldPanel("slug"),
+            FieldPanel("text"),
+            FieldPanel("facebook_url"),
+            FieldPanel("pinterest_url"),
+            FieldPanel("twitter_url"),
+            FieldPanel("instagram_url"),
+        ], heading="Menu2"),
+        InlinePanel("footer_links", label="Footer link"),
+        InlinePanel("footer_inspiration", label="Footer inspiration"),
     ]
 
     def __str__(self):
