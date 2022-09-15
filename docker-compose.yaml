@@ -1,11 +1,26 @@
 version: '3.7'
+
 services:
-  admin_api:
-    container_name: django_api
-    build:
-      context: .
-      dockerfile: Dockerfile
+  web:
+    build: .
+    command: sh entrypoint.sh
     volumes:
-      - .:/app
+      - .:/usr/src/app/
     ports:
-      - 9000:8000
+      - 8000:8000
+    env_file:
+      - .env.dev
+    depends_on:
+      - dbd
+  dbd:
+    image: postgres:12.12-alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - .env.dev.db
+
+volumes:
+    postgres_data:

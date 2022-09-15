@@ -1,19 +1,21 @@
-FROM python:3.9.5-slim-buster
+FROM python:3.10.4-alpine3.14
+
+WORKDIR /usr/src/app
+
+ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 RUN pip install "gunicorn==20.0.4"
 # Install system packages required by Wagtail and Django.
-RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-recommends \
-    build-essential \
-    libpq-dev \
-    libmariadbclient-dev \
-    libjpeg62-turbo-dev \
-    zlib1g-dev \
-    libwebp-dev \
- && rm -rf /var/lib/apt/lists/*
-WORKDIR /app
-COPY requirements.txt /app/requirements.txt
+# Install server packages
+RUN apk update \
+    && apk add postgresql-dev gcc python3-dev musl-dev libffi-dev openssl-dev \
+    && apk add jpeg-dev libwebp-dev zlib-dev freetype-dev lcms2-dev openjpeg-dev tiff-dev tk-dev tcl-dev libxml2-dev libxslt-dev libxml2
+
+# Install python packages
+RUN pip install --upgrade pip
+RUN pip install "gunicorn==20.0.4"
+COPY ./requirements.txt /usr/src/app/requirements.txt
 RUN pip install -r requirements.txt
-COPY . /app
-# RUN python manage.py collectstatic
-# CMD set -xe; python manage.py migrate --noinput; python manage.py runserver 0.0.0.0:8000
-CMD set -xe; python manage.py migrate --noinput; gunicorn core.wsgi:application -b :8000
+
+# Postgres Entrypoint
+COPY entrypoint.sh /usr/src/app/entrypoint.sh
