@@ -18,15 +18,16 @@ smooth_scroll qode_grid_1300 qode_footer_adv_responsiveness qode_footer_adv_resp
                         <div class="column1">
                             <div class="column_inner">
                                 <div class="portfolio_images">
-                                    <a class="lightbox_single_portfolio " title="portfolio-gallery-img1" href="{{page.pic1.url}}" data-rel="prettyPhoto[single_pretty_photo]">
-                                        <img src="{{page.pic1.url}}" alt="a" />
+                                    {% image self.specific.project_teaser max-797x882 as tizer %}
+                                    <a class="lightbox_single_portfolio " title="portfolio-gallery-img1" href="{{page.title}}" data-rel="prettyPhoto[single_pretty_photo]">
+                                        <img src="{{ tizer.url }}" alt="{{page.project_teaser.}}" />
                                     </a>
-                                    <a class="lightbox_single_portfolio " title="portfolio-gallery-img2" href="{{page.pic2.url}}" data-rel="prettyPhoto[single_pretty_photo]">
-                                        <img src="{{page.pic2.url}}" alt="a" />
+                                    {%for file_item in self.gallery_images.all%}
+                                    <a class="lightbox_single_portfolio " title="portfolio-gallery-img2" href="{{file_item.file.url}}" data-rel="prettyPhoto[single_pretty_photo]">
+                                        <img src="{{file_item.file.url}}" alt="{{file_item.name}}" />
+                                        {{file_item.url}}
                                     </a>
-                                    <a class="lightbox_single_portfolio " title="portfolio-gallery-img3" href="{{page.pic3.url}}" data-rel="prettyPhoto[single_pretty_photo]">
-                                        <img src="{{page.pic3.url}}" alt="a" />
-                                    </a>
+                                    {%endfor%}
                                 </div>
                             </div>
                         </div>
@@ -66,8 +67,9 @@ smooth_scroll qode_grid_1300 qode_footer_adv_responsiveness qode_footer_adv_resp
                                     <div class="info portfolio_single_custom_field">
                                         <h6 class="info_section_title">client</h6>
                                         <p>
-                                            <a href="https://stockholm88.qodeinteractive.com/" target="_blank">
-{{page.client}} </a>
+                                            <a href="/" target="_blank">
+                                                {{page.client}}
+                                            </a>
                                         </p>
                                     </div>
                                     <div class="info portfolio_single_custom_date">
@@ -78,14 +80,26 @@ smooth_scroll qode_grid_1300 qode_footer_adv_responsiveness qode_footer_adv_resp
                                         <h6 class="info_section_title">Category </h6>
                                         <p>
                                             <span class="category">
-{{page.categories}} </span>
+                                                {# if self.categories.count #}
+                                                {# for cat in self.categories.all #}
+                                                    <a href="?category={{ cat.slug }}">
+                                                        {{ cat.name }}
+                                                    </a>{% if not forloop.last %}, {% endif %}
+                                                {# endfor #}
+                                                {# endif #}
+                                            </span>
                                         </p>
                                     </div>
                                     <div class="info portfolio_single_tags">
                                         <h6 class="info_section_title">Tags</h6>
                                         <p>
                                             <span class="category">
-{{page.tags}} </span>
+                                               {% for tag in page.tags.all %}
+                                                {# Loop through all the existing tags #}
+                                                <a href="{{ self.get_parent.url }}?tag={{ tag.slug }}">{{ tag }}</a>
+                                                {% if not forloop.last %}, {% endif %}
+                                                {% endfor %}
+                                            </span>
                                         </p>
                                     </div>
 

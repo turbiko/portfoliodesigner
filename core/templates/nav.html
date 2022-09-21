@@ -3,38 +3,15 @@
         <ul id="menu-standard" class="">
            {% for item in navigation.menu_items.all %}
             <li id="nav-menu-item-139" class="menu-item menu-item-type-post_type menu-item-object-page page_item page-item-126  narrow
-            {% if item.link == request.path %}
-            current-menu-item  current_page_item active
-            {% endif %}
-            {% if 'home' in item.link %}
-            menu-item-home
-            {% endif %}
-            ">
-                <a  href="{{ item.link }}"
-                    {% if item.link == request.path %}
+            {% if item.link == request.path %} current-menu-item  current_page_item active {% endif %}
+            {% if 'home' in item.link %} menu-item-home{% endif %}">
+                <a  href="{{ item.link }}"{% if item.link == request.path %}
                     class="current"
                     {% endif %}>
                     <i class="menu_icon fa blank"></i>
                     <span class="menu-text">{{ item.title }}</span>
                     <span class="plus"></span></a>
             </li>
-            {% endfor %}
-            {% for language_code, language_name in LANGUAGES %}
-            <li id="mobile-menu-item-139" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-126
-            {% if item.link == request.path %}
-            current-menu-item  current_page_item active
-            {% endif %}
-            {% if 'home' in item.link %}
-            menu-item-home
-            {% endif %}
-            ">
-                    {% get_language_info for language_code as lang %}
-                    {% language language_code %}
-                        <a href="{% pageurl page.localized %}"  rel="alternate" hreflang="{{ language_code }}">
-                            {{ lang.name_local }}
-                        </a>
-                    {% endlanguage %}
-                 </li>
             {% endfor %}
         </ul>
     </nav>

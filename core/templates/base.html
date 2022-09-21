@@ -31,7 +31,6 @@
                       <div class="mobile_menu_button">
                         <span><i class="fa fa-bars"> </i></span>
                       </div>
-
                       <div class="logo_wrapper">
                         <div class="q_logo">
                           <a href="/">
@@ -41,12 +40,24 @@
                               alt="Logo"
                             />
                           </a>
-        </div>
-    </div>
-    </div>
+                        </div>
+                      </div>
+                    </div>
     <div class="header_inner_right">
         <div class="side_menu_button_wrapper right">
-            <div class="side_menu_button"></div>
+            <div class="side_menu_button">
+                {% for language_code, language_name in LANGUAGES %}
+                <langmenu  class="menu-item menu-item-type-post_type menu-item-object-page page_item ">
+                {% get_language_info for language_code as lang %}
+                    {% language language_code %}
+                        <a href="{% pageurl page.localized %}" class="text-capitalize" rel="alternate" hreflang="{{ language_code }}">
+                             {{language_code}}
+                        </a>
+                    {% if not forloop.last %} / {% endif %}
+                    {% endlanguage %}
+                </langmenu>
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% include 'nav.html' %}
