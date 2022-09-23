@@ -19,7 +19,7 @@ smooth_scroll qode_grid_1300 qode_footer_adv_responsiveness qode_footer_adv_resp
                             <div class="column_inner">
                                 <div class="portfolio_images">
                                     {% image self.specific.project_teaser max-797x882 as tizer %}
-                                    <a class="lightbox_single_portfolio " title="portfolio-gallery-img1" href="{{page.title}}" data-rel="prettyPhoto[single_pretty_photo]">
+                                    <a class="lightbox_single_portfolio " title="portfolio-gallery-img1" href="{{ tizer.url }}" data-rel="prettyPhoto[single_pretty_photo]">
                                         <img src="{{ tizer.url }}" alt="{{page.project_teaser.}}" />
                                     </a>
                                     {%for file_item in self.gallery_images.all%}
