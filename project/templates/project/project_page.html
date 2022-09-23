@@ -77,21 +77,21 @@ smooth_scroll qode_grid_1300 qode_footer_adv_responsiveness qode_footer_adv_resp
                                         <p>{{page.date}}</p>
                                     </div>
                                     <div class="info portfolio_single_categories">
-                                        <h6 class="info_section_title">Category </h6>
+                                        {# <h6 class="info_section_title">Category </h6>#}
                                         <p>
                                             <span class="category">
-                                                {% if self.categories.count %}
+
                                                 {# for cat in self.categories.all #}
-                                                    <a href="?category={{ cat.slug }}">
-                                                        {{ cat.name }}
-                                                    </a>{% if not forloop.last %}, {% endif %}
+                                                {#    <a href="?category={{ cat.slug }}">#}
+                                                {#        {{ cat.name }} #}
+                                                {#    </a>{% if not forloop.last %}, {% endif %} #}
                                                 {# endfor #}
-                                                {% endif %}
+
                                             </span>
                                         </p>
                                     </div>
                                     <div class="info portfolio_single_tags">
-                                        {% if page.tags.count %}
+
                                         <h6 class="info_section_title">Tags</h6>
                                         <p>
                                             <span class="category">
@@ -102,7 +102,7 @@ smooth_scroll qode_grid_1300 qode_footer_adv_responsiveness qode_footer_adv_resp
                                                 {% endfor %}
                                             </span>
                                         </p>
-                                        {%endif%}
+
                                     </div>
 
                                 </div>
