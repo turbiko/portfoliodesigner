@@ -91,18 +91,18 @@ smooth_scroll qode_grid_1300 qode_footer_adv_responsiveness qode_footer_adv_resp
                                         </p>
                                     </div>
                                     <div class="info portfolio_single_tags">
-
-                                        <h6 class="info_section_title">Tags</h6>
+                                        {% for tag in page.tags.all %}
+                                        {% if  forloop.first %}<h6 class="info_section_title">Tags</h6>{% endif %}
                                         <p>
                                             <span class="category">
-                                               {% for tag in page.tags.all %}
+
                                                 {# Loop through all the existing tags #}
                                                 <a href="{{ self.get_parent.url }}?tag={{ tag.slug }}">{{ tag }}</a>
                                                 {% if not forloop.last %}, {% endif %}
-                                                {% endfor %}
+
                                             </span>
                                         </p>
-
+                                        {% endfor %}
                                     </div>
 
                                 </div>
