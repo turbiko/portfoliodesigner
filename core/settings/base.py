@@ -253,3 +253,7 @@ LOGGING = {
 }
 
 WAGTAILIMAGES_MAX_UPLOAD_SIZE = 50 *  1024 * 1024  # first digit size in MB
+
+# https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types
+PREVIEW_EXT = ['.jpg', '.jpeg', '.pjpeg', '.pjp', '.png', '.ico', '.cur', '.tif', '.tiff', '.bmp', '.gif', '.eps',
+                '.svg', '.webp', '.apng', '.avif', '.jfif' ]
