@@ -80,16 +80,16 @@ smooth_scroll qode_grid_1300 qode_footer_adv_responsiveness qode_footer_adv_resp
                                         {# <h6 class="info_section_title">Category </h6>#}
                                         <p>
                                             <span class="category">
+                                                {% for category in self.specific.categories.all %}
 
-                                                {# for cat in self.categories.all #}
-                                                {#    <a href="?category={{ cat.slug }}">#}
-                                                {#        {{ cat.name }} #}
-                                                {#    </a>{% if not forloop.last %}, {% endif %} #}
-                                                {# endfor #}
-
-                                            </span>
+                                                {% image category.icon fill-32x32 style="vertical-align: middle" %}
+                                                        {{ category.name }}
+                                                  {% if not forloop.last %}, {% endif %}
+                                                {% endfor %}
+                                              </span>
                                         </p>
                                     </div>
+
                                     <div class="info portfolio_single_tags">
                                         {% for tag in page.tags.all %}
                                         {% if  forloop.first %}<h6 class="info_section_title">Tags</h6>{% endif %}
@@ -108,7 +108,6 @@ smooth_scroll qode_grid_1300 qode_footer_adv_responsiveness qode_footer_adv_resp
                                 </div>
                             </div>
                         </div>
-
 
                     </div>
                 </div>

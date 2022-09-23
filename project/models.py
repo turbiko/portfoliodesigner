@@ -1,14 +1,37 @@
 from django.db import models
+from django import forms
+
 from django.utils.translation import activate, gettext_lazy as _
 from modelcluster.contrib.taggit import ClusterTaggableManager
-from modelcluster.fields import ParentalKey
+from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from taggit.models import TaggedItemBase
+from wagtail.snippets.models import register_snippet
 
 from wagtail.models import Page, Orderable
 from wagtail.fields import RichTextField
 from wagtail.admin.panels import FieldPanel, InlinePanel
 from wagtail.search import index
 from core import tools
+
+@register_snippet
+class ProjectCategory(models.Model):
+    name = models.CharField(max_length=255)
+    icon = models.ForeignKey(
+        'wagtailimages.Image', null=True, blank=True,
+        on_delete=models.SET_NULL, related_name='+'
+    )
+
+    panels = [
+        FieldPanel('name'),
+        FieldPanel('icon'),
+    ]
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'Project categories'
+
 
 class ProjectPageTag(TaggedItemBase):
     content_object = ParentalKey(
@@ -24,7 +47,7 @@ class ProjectPage(Page):
     client = models.CharField( max_length=250, blank=True)
     # tags = models.CharField(max_length=100, blank=True)
     tags = ClusterTaggableManager(through=ProjectPageTag, blank=True)
-    categories = models.CharField(max_length=100, blank=True)
+    categories = ParentalManyToManyField('ProjectCategory', blank=True)
     project_teaser = models.ForeignKey(
         'wagtailimages.Image', on_delete=models.SET_NULL,  related_name='+', null=True
     )
@@ -36,7 +59,7 @@ class ProjectPage(Page):
         FieldPanel('about_project'),
         FieldPanel('client'),
         FieldPanel("tags"),
-        FieldPanel('categories'),
+        FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
         FieldPanel('project_teaser'),
         InlinePanel('gallery_images', label="Portfolio images"),
     ]
