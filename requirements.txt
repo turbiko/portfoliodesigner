@@ -3,3 +3,5 @@ wagtail>=3.0,<3.1
 wagtail-localize==1.2.1
 django_extensions
 whitenoise
+pytz==2022.2.1
+tzdata==2022.2
